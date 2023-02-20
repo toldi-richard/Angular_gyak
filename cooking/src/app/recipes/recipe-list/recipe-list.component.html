@@ -6,19 +6,10 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <a href="#" class="list-group-item clearfix rounded border border-1 p-1 border-opacity-10" *ngFor="let recipe of recipes" id="recipe">
-            <div class="float-start">
-                <h4 class="list-group-item-heading">{{recipe.name}}</h4>
-                <p class="list-group-item-text">{{recipe.description}}</p>
-            </div>
-            <span class="float-end">
-                <img
-                [src]="recipe.imagePath" 
-                alt="{{recipe.name}}" 
-                class="img-response rounded-pill" 
-                style="max-height: 60px;">
-            </span>
-        </a>
-        <app-recipe-item></app-recipe-item>
+        <app-recipe-item 
+        *ngFor="let recipeEl of recipes"
+        [recipe] = "recipeEl"
+        (recipeSelected) = "onRecipeSelected(recipeEl)" 
+        id="recipe"></app-recipe-item>
     </div>
 </div>
